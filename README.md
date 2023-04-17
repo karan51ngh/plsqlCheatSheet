@@ -164,3 +164,39 @@ BEGIN
 	end loop;
 END;
 ```
+
+## Label
+
+A label is an identifier that can be assigned to a statement, such as a loop or a block. It is used to identify a specific block or loop so that it can be referred to in another part of the program.
+> By specifying the label name followed by a period and the name of a variable, you can refer to a variable that is declared in a block that is labeled with the specified label.
+
+## Functions
+
+- Syntax:
+```sql
+CREATE [OR REPLACE] FUNCTION function_name 
+  [(parameter_name [IN | OUT | IN OUT] parameter_data_type [, ...])] 
+RETURN return_data_type 
+[IS | AS]
+BEGIN
+  -- PL/SQL code for the function
+END [function_name];
+```
+- Keywords Used:
+    - `CREATE [OR REPLACE] FUNCTION`: This is the keyword that tells the database that you want to create a new function. The OR REPLACE clause is optional and tells the database to replace the function if it already exists.
+    - `IN | OUT | IN OUT`: These are optional keywords that indicate the direction of the parameter.
+    - `RETURN`: This is the keyword that indicates the data type that the function returns.
+    - `IS | AS`: This keyword separates the declaration section of the function from the executable section.
+    - `BEGIN`: This keyword marks the beginning of the executable section of the function.
+    - `END [function_name]`: This keyword marks the end of the function. The optional function_name is used to specify the name of the function to be ended.
+- Example:
+```sql
+CREATE OR REPLACE FUNCTION add_numbers(num1 NUMBER, num2 NUMBER) 
+RETURN NUMBER
+IS
+  result NUMBER;
+BEGIN
+  result := num1 + num2;
+  RETURN result;
+END add_numbers;
+```
